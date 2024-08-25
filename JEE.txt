@@ -1,0 +1,35 @@
+JDBC
+=======================================================
+MYSQLDRIVER
+=======================================================
+com.mysql.cj.jdbc.Driver
+JDBC URL FOR MYSQL
+=======================================================
+"jdbc:mysql://localhost:3306/test","root","arindam"
+======================================================
+JEE
+=======================================
+BOOTSTRAP IN HTML/JSP PAGE
+==========================================
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+======================================================================================
+BOOTSTRAP TUTORIAL
+===========================================================================
+https://getbootstrap.com/docs/4.0/content/tables/
+=======================================================================
+SERVLET FILTER
+======================================================================
+ <filter>
+      <filter-name>FlFilter</filter-name>
+      <filter-class>com.arindam.FlFilter</filter-class>
+  </filter>
+   
+  <filter-mapping>
+      <filter-name>FlFilter</filter-name>
+      <url-pattern>/FlServe</url-pattern>
+  </filter-mapping>
+=============================================================================
+JSTL
+=============================================================================
+    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
+============================================================================

@@ -1,0 +1,15 @@
+JAVA17 INSTALLATION
+==============================================
+https://www.oracle.com/in/java/technologies/downloads/#jdk17-windows
+THEN GO TO JDK17
+THEN CLICK ON X64 Installer IT WILL DOWNLOAD EXEC FILE
+CLICK ON EXE FILE AND INSTALL IT
+===================================================
+MYSQL INSTALLATION
+===============================================
+https://www.youtube.com/watch?v=0AF0w_OJyDs
+===============================================
+TOMCAT INSTALLATION
+================================================
+ECLIPSE IDE INSTALLATION
+================================================
