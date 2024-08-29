@@ -1,0 +1,297 @@
+Enter password: *******
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 326
+Server version: 8.0.35 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| abs                |
+| aec                |
+| aecdb              |
+| aiem               |
+| aiem1              |
+| bootdb             |
+| bootreact          |
+| btrtdb             |
+| dbs                |
+| fdapps             |
+| foodapp            |
+| foodappdb          |
+| foodapps           |
+| fooddb             |
+| foodsdb            |
+| fullstackdb        |
+| hbdb               |
+| hbdbs              |
+| hbsdb              |
+| information_schema |
+| mysql              |
+| performance_schema |
+| restdb             |
+| sys                |
+| test               |
+| testdb             |
+| testing            |
+| tests              |
+| tst                |
++--------------------+
+29 rows in set (0.03 sec)
+
+mysql> CREATE DATABASE TESTINGDB;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| abs                |
+| aec                |
+| aecdb              |
+| aiem               |
+| aiem1              |
+| bootdb             |
+| bootreact          |
+| btrtdb             |
+| dbs                |
+| fdapps             |
+| foodapp            |
+| foodappdb          |
+| foodapps           |
+| fooddb             |
+| foodsdb            |
+| fullstackdb        |
+| hbdb               |
+| hbdbs              |
+| hbsdb              |
+| information_schema |
+| mysql              |
+| performance_schema |
+| restdb             |
+| sys                |
+| test               |
+| testdb             |
+| testing            |
+| testingdb          |
+| tests              |
+| tst                |
++--------------------+
+30 rows in set (0.00 sec)
+
+mysql> USE TESTINGDB;
+Database changed
+
+CREATE TABLE CUSTOMER
+(CID  VARCHAR(10),
+ CNAME VARCHAR(25),
+ CPHNO VARCHAR(10)
+);
+SHOW TABLES;
+INSERT INTO CUSTOMER VALUES('C1','AYAN','22222');
+ALL DATA FROM A TABLE
+===============================================
+SELECT * FROM CUSTOMER;
+====================================================
+CREATE TABLE DEPT
+(DEPTNO VARCHAR(10) PRIMARY KEY,
+ DNAME  VARCHAR(25) NOT NULL,
+ LOC    VARCHAR(25) NOT NULL
+);
+
+INSERT INTO DEPT VALUES('D1','MKTG','KOLKATA');
+INSERT INTO DEPT VALUES('D1','MKTG','KOLKATA');
+INSERT INTO DEPT VALUES('D2',NULL,'KOLKATA');
+INSERT INTO DEPT VALUES('D2','FINANCE','CHENNAI');
+INSERT INTO DEPT VALUES('D3','IT','DELHI');
+INSERT INTO DEPT VALUES('D4','HR','MUMBAI');
+===================================================
+
+CREATE TABLE EMP
+(EID  VARCHAR(10) PRIMARY KEY,
+ENAME VARCHAR(25) NOT NULL,
+DESIG    VARCHAR(25) NOT NULL,
+SAL         DECIMAL,
+DEPTNO  VARCHAR(10),
+CONSTRAINT EMP_DEPTNO_FK FOREIGN KEY(DEPTNO) REFERENCES DEPT(DEPTNO)
+);
+===============================================================
+INSERT INTO EMP VALUES('E1','ROBIN','MANAGER',50000.00,'D5');
+====================================================================
+INSERT INTO EMP VALUES('E1','ROBIN','MANAGER',50000.00,'D1');
+INSERT INTO EMP VALUES('E2','ARUP','CLERK',25000.00,'D1');
+INSERT INTO EMP VALUES('E3','ANNANYA','ANALYST',40000.00,'D2');
+INSERT INTO EMP VALUES('E4','RUPAM','CLERK',27000.00,'D2');
+INSERT INTO EMP VALUES('E5','AJOY','MANAGER',75000.00,'D3');
+INSERT INTO EMP VALUES('E6','JAYANTA','EXECUTIVE',35000.00,'D3');
+=========================================================================
+=========================================================================================
+DATA RETRIEVAL
+============================================================
+ALL DATA FROM A TABLE
+=========================================
+SELECT * FROM EMP;
+SPECIFIC COLUMN DATA
+=============================================
+SELECT ENAME,DESIG,SAL FROM EMP;
+==============================================
+RESTRICTION OF DATA
+===================================================
+SELECT * FROM EMP WHERE ENAME='ROBIN';
+SELECT * FROM EMP WHERE DESIG='CLERK';
+=====================================================
+IN OPERATOR
+================================================
+SELECT * FROM EMP WHERE DESIG IN('CLERK','ANALYST');
+=======================================================
+ SELECT * FROM EMP WHERE DESIG NOT IN('CLERK','ANALYST');
+============================================================
+
+AND CLAUSE
+==========================================
+WHEN SATISFYING MULTIPLE COLUMN DATA
+SELECT * FROM EMP WHERE DESIG='CLERK' AND SAL >25000;
+
+SELECT * FROM EMP WHERE DESIG='CLERK' OR SAL >25000;
+SELECT * FROM EMP WHERE DESIG NOT IN('EXECUTIVE');
+=======================================================================
+SEARCHING 
+======================================================
+LIKE OPERATOR
+=====================================================
+THOSE ENAME STARTING WITH A
+SELECT * FROM EMP WHERE ENAME LIKE 'A%';
+SECOND CHARECTER IS A
+=============================================
+SELECT * FROM EMP WHERE ENAME LIKE '_J%';
+LAST CHARECTER OF ENAME IS M
+============================================
+SELECT * FROM EMP WHERE ENAME LIKE '%M';
+ANY POSITION A
+===========================================
+SELECT * FROM EMP WHERE ENAME LIKE '%A%';
+=============================================
+ENAME STARTING WITH R AND DEPTNO IS D1
+============================================
+SELECT * FROM EMP WHERE DEPTNO='D1' AND ENAME LIKE 'R%';
+=============================================================
+CREATE TABLE PRODUCT
+(PID VARCHAR(10) PRIMARY KEY,
+ PNAME VARCHAR(25) NOT NULL,
+ PQTY  DECIMAL,
+ PRICE DECIMAL);
+INSERT INTO PRODUCT VALUES('P1','TV',5,25000.00);
+INSERT INTO PRODUCT VALUES('P2','REFRIGERATOR',6,27000.00);
+=================================================================
+UPDATE DATA
+==========================================================
+P1'S VALUE
+=====================================
+PNAME===CONVECTION
+PQTY=12
+PRICE=18000.00
+======================================================================
+UPDATE PRODUCT SET PNAME='CONVECTION',PQTY=12,PRICE=18000.00 WHERE PID='P1';
+SELECT * FROM PRODUCT;
+DELETE RECORDS
+======================================================================
+DELETE FROM PRODUCT WHERE PID='P2';
+====================================================================
+ADD A COLUMN IN THE EXISTING TABLE
+=====================================================
+COLUMN WANT TO ADD SALESDT   DATE  DEFAULT TODAY'S DATE
+ALTER TABLE PRODUCT ADD SALESDT DATE DEFAULT (CURRENT_DATE);
+mysql> DESC PRODUCT;
++---------+---------------+------+-----+-----------+-------------------+
+| Field   | Type          | Null | Key | Default   | Extra             |
++---------+---------------+------+-----+-----------+-------------------+
+| PID     | varchar(10)   | NO   | PRI | NULL      |                   |
+| PNAME   | varchar(25)   | NO   |     | NULL      |                   |
+| PQTY    | decimal(10,0) | YES  |     | NULL      |                   |
+| PRICE   | decimal(10,0) | YES  |     | NULL      |                   |
+| SALESDT | date          | YES  |     | curdate() | DEFAULT_GENERATED |
++---------+---------------+------+-----+-----------+-------------------+
+5 rows in set (0.00 sec)
+
+INSERT INTO PRODUCT(PID,PNAME,PQTY,PRICE)VALUES('P2','TAB',5,22000.00);
+==============================================================================
+EQUI JOIN
+============================================================================
+SELECT E.EID,E.ENAME,E.DESIG,E.SAL,D.DEPTNO,D.DNAME,D.LOC
+FROM EMP E,DEPT D
+WHERE E.DEPTNO=D.DEPTNO;
+======================================================================
+HOW TO CREATE DUPLICATE TABLE
+======================================================================
+CREATE TABLE PRODUCT1 AS SELECT * FROM PRODUCT;
+SELECT * FROM PRODUCT;
+==========================================================================
+CREATE A DUPLICATE TABLE WITHOUT DATA
+CREATE TABLE PRODUCT2 AS SELECT * FROM PRODUCT WHERE PID=NULL;
+CREATE TABLE PRODUCT3 AS SELECT * FROM PRODUCT WHERE 1=2;
+==========================================================================
+SORTING DATA IN THE TABLE
+=========================================================================
+SELECT * FROM EMP ORDER BY SAL;===============ASCENDING ORDER
+SELECT * FROM EMP ORDER BY SAL DESC;==========DESCENDING ORDER
+
+FIND  DESIG COMES WITH ASCENDING ORDER AND SAL COMES DESCENDING ORDER
+FIND OUT TWO TOPMOST HIGHEST EARNING SALRIED PERSON DETAILS
+======================================================================
+SELECT * FROM EMP ORDER BY SAL DESC LIMIT 2;
+====================================================================
+INSERT INTO PRODUCT VALUES('P3','LAPTOP',45,45000,'2024-08-27');
+INSERT INTO PRODUCT VALUES('P4','MOBILE',12,12000,'2024-08-25');
+====================================================================
+SELECT * FROM PRODUCT ORDER BY SALESDT LIMIT 2;
+======================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

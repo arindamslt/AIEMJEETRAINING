@@ -1,0 +1,120 @@
+TRAINING MATERIALS LINK
+================================================
+https://github.com/arindamslt/AIEMJEETRAINING.git
+===================================================
+DATE:29.08.2024
+==================================================
+DBMS
+=======================================
+DATABASE MANAGEMENT SYSTEM
+====================================
+DATABASE
+========================================================
+TERMS
+==========================================
+DATA==RAW FACTS
+FIELDS
+RECORDS/TUPLE
+TABLE 
+DATABASE===COLLECTION OF INTERRELATED DATA OR TABLES
+RDBMS
+===========================================
+RELATIONAL DATABASE MANAGEMENT SYSTEM
+==========================================
+
+ADVANTAGE OF DBMS/RDBMS
+=========================================================
+1.MINIMIZE DATA REDUNDENCY(DUPLICATION OF DATA)
+2.SECURITY RESTRICTION IS THERE
+3.DATA CAN BE SHARED
+4.INTEGRITY CONSTRAINTS IS MAINTAINED
+================================================
+SOFTWARE REQUIRED FOR RDBMS
+====================================
+1.ORACLE
+2.MYSQL
+3.SQLSERVER
+4.POSTGRESS
+==========================================================
+NOSQL DATABASE
+============================
+MONGODB
+CASSANDRA
+COUCHDB
+=================================================================
+SQL===STRUCTURED QUERY LANGUAGE
+RDBMS/DBMS===DATABASE+SQL
+=========================================================
+GENERATION OF LANGUAGE
+=============================================================
+1ST GENERATION===MACHINE LANGUAGE
+2ND GENERATION====ASSEMBLY LANGUAGE
+3RD GENERATION====HLL====C++,JAVA
+HOW PART AND WHAT PART IS KNOWN TO US
+4TH GENERATION===SQL==NON PROCEDURAL LANGUAGE
+HOW PART IS NOT KNOWN TO US
+ONLY WHAT PART IS KNOWN TO US
+SELECT * FROM EMP;
+==================================================
+SQL COMMANDS
+==============================================
+DDL==DATA DEFINATION LANGUAGE
+===============================================
+CREATE,ALTER,RENAME,DROP,TRUNCATE
+DATA RETRIEVAL
+======================================
+SELECT
+DML==DATA MANIPULATION LANGUAGE
+===============================================
+INSERT,UPDATE,DELETE,MERGE
+TCL==TRANSACTION CONTROL LANGUAGE
+=====================================
+COMMIT,ROLLBACK
+DCL==DATA CONTROL LANGUAGE
+===========================================
+GRANT,REVOKE
+=================================================================
+
+DATA TYPES IN MYSQL
+========================================
+1.VARCHAR===APLHA NUMERIC===A1
+2.CHAR===ABC
+3.NUMBER==67677
+4.DECIMAL==555.55
+5.DATE====YYYY-MM-DD
+ROLLNO  VARCHAR(10)====
+SAL     NUMERIC(5)==99999
+DECIMAL(7,2)===99999.99
+================================================================================
+CONSTRAINTS
+============================================================
+BEFORE INSERTING ANY DATA INTO TABLE YOU HAVE TO STATISFY CERTAIN RULES AND RUGALATIONS
+TYPES OF CONSTRAINTS
+============================================================
+1.PRIMARY KEY====IT CAN'T ACCEPT DULICATE VALUE AS WELL AS NULL VALUE
+2.NOT NULL=======IT CAN'T ACCEPT THE NULL VALUE
+3.UNIQUE KEY===IT CAN'T ACCEPT DUPLICATE VALUE BUT ACCEPT NULL VALUE
+4.CHECK CONSTRAINTS===IT WILL SUPPORT PREDEFINED VALUES 
+   EX:GENDER==M/F
+5.FOREIGN KEY====IT WILL ACCEPT OTHER TABLE PRIMARY KEY VALUE ONLY
+SOFTWARE REQUIRED 
+========================================================
+JAVA17 OR BEYOND THAT
+ECLIPSE EE VERSION
+TOMCAT
+MYSQL
+================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+

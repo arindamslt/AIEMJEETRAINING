@@ -1,0 +1,481 @@
+Enter password: *******
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 328
+Server version: 8.0.35 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| abs                |
+| aec                |
+| aecdb              |
+| aiem               |
+| aiem1              |
+| bootdb             |
+| bootreact          |
+| btrtdb             |
+| dbs                |
+| fdapps             |
+| foodapp            |
+| foodappdb          |
+| foodapps           |
+| fooddb             |
+| foodsdb            |
+| fullstackdb        |
+| hbdb               |
+| hbdbs              |
+| hbsdb              |
+| information_schema |
+| mysql              |
+| performance_schema |
+| restdb             |
+| sys                |
+| test               |
+| testdb             |
+| testing            |
+| testingdb          |
+| tests              |
+| tst                |
++--------------------+
+30 rows in set (0.02 sec)
+
+mysql> USE TESTINGDB;
+Database changed
+mysql> SHOW TABLES;
++---------------------+
+| Tables_in_testingdb |
++---------------------+
+| customer            |
+| dept                |
+| emp                 |
++---------------------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT * FROM EMP;
++-----+---------+-----------+-------+--------+
+| EID | ENAME   | DESIG     | SAL   | DEPTNO |
++-----+---------+-----------+-------+--------+
+| E1  | ROBIN   | MANAGER   | 50000 | D1     |
+| E2  | ARUP    | CLERK     | 25000 | D1     |
+| E3  | ANNANYA | ANALYST   | 40000 | D2     |
+| E4  | RUPAM   | CLERK     | 27000 | D2     |
+| E5  | AJOY    | MANAGER   | 75000 | D3     |
+| E6  | JAYANTA | EXECUTIVE | 35000 | D3     |
++-----+---------+-----------+-------+--------+
+6 rows in set (0.00 sec)
+
+mysql> DESC EMP;
++--------+---------------+------+-----+---------+-------+
+| Field  | Type          | Null | Key | Default | Extra |
++--------+---------------+------+-----+---------+-------+
+| EID    | varchar(10)   | NO   | PRI | NULL    |       |
+| ENAME  | varchar(25)   | NO   |     | NULL    |       |
+| DESIG  | varchar(25)   | NO   |     | NULL    |       |
+| SAL    | decimal(10,0) | YES  |     | NULL    |       |
+| DEPTNO | varchar(10)   | YES  | MUL | NULL    |       |
++--------+---------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT ENAME,JOB,SAL FROM EMP;
+ERROR 1054 (42S22): Unknown column 'JOB' in 'field list'
+mysql> SELECT ENAME,DESIG,SAL FROM EMP;
++---------+-----------+-------+
+| ENAME   | DESIG     | SAL   |
++---------+-----------+-------+
+| ROBIN   | MANAGER   | 50000 |
+| ARUP    | CLERK     | 25000 |
+| ANNANYA | ANALYST   | 40000 |
+| RUPAM   | CLERK     | 27000 |
+| AJOY    | MANAGER   | 75000 |
+| JAYANTA | EXECUTIVE | 35000 |
++---------+-----------+-------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT * FROM EMP WHERE ENAME='ROBIN';
++-----+-------+---------+-------+--------+
+| EID | ENAME | DESIG   | SAL   | DEPTNO |
++-----+-------+---------+-------+--------+
+| E1  | ROBIN | MANAGER | 50000 | D1     |
++-----+-------+---------+-------+--------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * FROM EMP WHERE DESIG='CLERK';
++-----+-------+-------+-------+--------+
+| EID | ENAME | DESIG | SAL   | DEPTNO |
++-----+-------+-------+-------+--------+
+| E2  | ARUP  | CLERK | 25000 | D1     |
+| E4  | RUPAM | CLERK | 27000 | D2     |
++-----+-------+-------+-------+--------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT * FROM EMP WHERE DESIG IN('CLERK','ANALYST');
++-----+---------+---------+-------+--------+
+| EID | ENAME   | DESIG   | SAL   | DEPTNO |
++-----+---------+---------+-------+--------+
+| E2  | ARUP    | CLERK   | 25000 | D1     |
+| E3  | ANNANYA | ANALYST | 40000 | D2     |
+| E4  | RUPAM   | CLERK   | 27000 | D2     |
++-----+---------+---------+-------+--------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT * FROM EMP WHERE DESIG NOT IN('CLERK','ANALYST');
++-----+---------+-----------+-------+--------+
+| EID | ENAME   | DESIG     | SAL   | DEPTNO |
++-----+---------+-----------+-------+--------+
+| E1  | ROBIN   | MANAGER   | 50000 | D1     |
+| E5  | AJOY    | MANAGER   | 75000 | D3     |
+| E6  | JAYANTA | EXECUTIVE | 35000 | D3     |
++-----+---------+-----------+-------+--------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT * FROM EMP;
++-----+---------+-----------+-------+--------+
+| EID | ENAME   | DESIG     | SAL   | DEPTNO |
++-----+---------+-----------+-------+--------+
+| E1  | ROBIN   | MANAGER   | 50000 | D1     |
+| E2  | ARUP    | CLERK     | 25000 | D1     |
+| E3  | ANNANYA | ANALYST   | 40000 | D2     |
+| E4  | RUPAM   | CLERK     | 27000 | D2     |
+| E5  | AJOY    | MANAGER   | 75000 | D3     |
+| E6  | JAYANTA | EXECUTIVE | 35000 | D3     |
++-----+---------+-----------+-------+--------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT * FROM EMP WHERE JOB='CLERK' AND SAL >25000;
+ERROR 1054 (42S22): Unknown column 'JOB' in 'where clause'
+mysql> SELECT * FROM EMP WHERE JOB='CLERK';
+ERROR 1054 (42S22): Unknown column 'JOB' in 'where clause'
+mysql> SELECT * FROM EMP WHERE DESIG='CLERK' AND SAL >25000;
++-----+-------+-------+-------+--------+
+| EID | ENAME | DESIG | SAL   | DEPTNO |
++-----+-------+-------+-------+--------+
+| E4  | RUPAM | CLERK | 27000 | D2     |
++-----+-------+-------+-------+--------+
+1 row in set (0.02 sec)
+
+mysql> SELECT * FROM EMP WHERE DESIG='CLERK' AND SAL >25000;
++-----+-------+-------+-------+--------+
+| EID | ENAME | DESIG | SAL   | DEPTNO |
++-----+-------+-------+-------+--------+
+| E4  | RUPAM | CLERK | 27000 | D2     |
++-----+-------+-------+-------+--------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * FROM EMP WHERE DESIG='CLERK' OR SAL >25000;
++-----+---------+-----------+-------+--------+
+| EID | ENAME   | DESIG     | SAL   | DEPTNO |
++-----+---------+-----------+-------+--------+
+| E1  | ROBIN   | MANAGER   | 50000 | D1     |
+| E2  | ARUP    | CLERK     | 25000 | D1     |
+| E3  | ANNANYA | ANALYST   | 40000 | D2     |
+| E4  | RUPAM   | CLERK     | 27000 | D2     |
+| E5  | AJOY    | MANAGER   | 75000 | D3     |
+| E6  | JAYANTA | EXECUTIVE | 35000 | D3     |
++-----+---------+-----------+-------+--------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT * FROM EMP WHERE ENAME LIKE 'A%';
++-----+---------+---------+-------+--------+
+| EID | ENAME   | DESIG   | SAL   | DEPTNO |
++-----+---------+---------+-------+--------+
+| E2  | ARUP    | CLERK   | 25000 | D1     |
+| E3  | ANNANYA | ANALYST | 40000 | D2     |
+| E5  | AJOY    | MANAGER | 75000 | D3     |
++-----+---------+---------+-------+--------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT * FROM EMP WHERE ENAME LIKE '_J%';
++-----+-------+---------+-------+--------+
+| EID | ENAME | DESIG   | SAL   | DEPTNO |
++-----+-------+---------+-------+--------+
+| E5  | AJOY  | MANAGER | 75000 | D3     |
++-----+-------+---------+-------+--------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * FROM EMP WHERE ENAME LIKE '%M';
++-----+-------+-------+-------+--------+
+| EID | ENAME | DESIG | SAL   | DEPTNO |
++-----+-------+-------+-------+--------+
+| E4  | RUPAM | CLERK | 27000 | D2     |
++-----+-------+-------+-------+--------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * FROM EMP WHERE ENAME LIKE '%A%';
++-----+---------+-----------+-------+--------+
+| EID | ENAME   | DESIG     | SAL   | DEPTNO |
++-----+---------+-----------+-------+--------+
+| E2  | ARUP    | CLERK     | 25000 | D1     |
+| E3  | ANNANYA | ANALYST   | 40000 | D2     |
+| E4  | RUPAM   | CLERK     | 27000 | D2     |
+| E5  | AJOY    | MANAGER   | 75000 | D3     |
+| E6  | JAYANTA | EXECUTIVE | 35000 | D3     |
++-----+---------+-----------+-------+--------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT * FROM EMP;
++-----+---------+-----------+-------+--------+
+| EID | ENAME   | DESIG     | SAL   | DEPTNO |
++-----+---------+-----------+-------+--------+
+| E1  | ROBIN   | MANAGER   | 50000 | D1     |
+| E2  | ARUP    | CLERK     | 25000 | D1     |
+| E3  | ANNANYA | ANALYST   | 40000 | D2     |
+| E4  | RUPAM   | CLERK     | 27000 | D2     |
+| E5  | AJOY    | MANAGER   | 75000 | D3     |
+| E6  | JAYANTA | EXECUTIVE | 35000 | D3     |
++-----+---------+-----------+-------+--------+
+6 rows in set (0.00 sec)
+
+mysql> CREATE TABLE PRODUCT
+    -> (PID VARCHAR(10) PRIMARY KEY,
+    ->  PNAME VARCHAR(25) NOT NULL,
+    ->  PQTY  DECIMAL,
+    ->  PRICE DECIMAL);
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> INSERT INTO PRODUCT VALUES('P1','TV',5,25000.00);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO PRODUCT VALUES('P2','REFRIGERATOR',6,27000.00);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT * FROM PRODUCT;
++-----+--------------+------+-------+
+| PID | PNAME        | PQTY | PRICE |
++-----+--------------+------+-------+
+| P1  | TV           |    5 | 25000 |
+| P2  | REFRIGERATOR |    6 | 27000 |
++-----+--------------+------+-------+
+2 rows in set (0.00 sec)
+
+mysql> UPDATE PRODUCT SET PNAME='CONVECTION',PQTY=12,PRICE=18000.00 WHERE PID='P1';
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM PRODUCT;
++-----+--------------+------+-------+
+| PID | PNAME        | PQTY | PRICE |
++-----+--------------+------+-------+
+| P1  | CONVECTION   |   12 | 18000 |
+| P2  | REFRIGERATOR |    6 | 27000 |
++-----+--------------+------+-------+
+2 rows in set (0.00 sec)
+
+mysql> UPDATE PRODUCT SET PQTY=15 WHERE PID='P2';
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM PRODUCT;
++-----+--------------+------+-------+
+| PID | PNAME        | PQTY | PRICE |
++-----+--------------+------+-------+
+| P1  | CONVECTION   |   12 | 18000 |
+| P2  | REFRIGERATOR |   15 | 27000 |
++-----+--------------+------+-------+
+2 rows in set (0.00 sec)
+
+mysql> DELETE FROM PRODUCT WHERE PID='P2';
+Query OK, 1 row affected (0.02 sec)
+
+mysql> SELECT * FROM PRODUCT;
++-----+------------+------+-------+
+| PID | PNAME      | PQTY | PRICE |
++-----+------------+------+-------+
+| P1  | CONVECTION |   12 | 18000 |
++-----+------------+------+-------+
+1 row in set (0.00 sec)
+
+mysql> ALTER TABLE PRODUCT ADD SALESDT DATE DEFAULT (CURRENT_DATE);
+Query OK, 1 row affected (0.05 sec)
+Records: 1  Duplicates: 0  Warnings: 0
+
+mysql> DESC PRODUCT;
++---------+---------------+------+-----+-----------+-------------------+
+| Field   | Type          | Null | Key | Default   | Extra             |
++---------+---------------+------+-----+-----------+-------------------+
+| PID     | varchar(10)   | NO   | PRI | NULL      |                   |
+| PNAME   | varchar(25)   | NO   |     | NULL      |                   |
+| PQTY    | decimal(10,0) | YES  |     | NULL      |                   |
+| PRICE   | decimal(10,0) | YES  |     | NULL      |                   |
+| SALESDT | date          | YES  |     | curdate() | DEFAULT_GENERATED |
++---------+---------------+------+-----+-----------+-------------------+
+5 rows in set (0.00 sec)
+
+mysql> INSERT INTO PRODUCT(PID,PNAME,PQTY,PRICE)VALUES('P2','TAB',5,22000.00);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> SELECT * FROM PRODUCT;
++-----+------------+------+-------+------------+
+| PID | PNAME      | PQTY | PRICE | SALESDT    |
++-----+------------+------+-------+------------+
+| P1  | CONVECTION |   12 | 18000 | 2024-08-29 |
+| P2  | TAB        |    5 | 22000 | 2024-08-29 |
++-----+------------+------+-------+------------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT * FROM EMP;
++-----+---------+-----------+-------+--------+
+| EID | ENAME   | DESIG     | SAL   | DEPTNO |
++-----+---------+-----------+-------+--------+
+| E1  | ROBIN   | MANAGER   | 50000 | D1     |
+| E2  | ARUP    | CLERK     | 25000 | D1     |
+| E3  | ANNANYA | ANALYST   | 40000 | D2     |
+| E4  | RUPAM   | CLERK     | 27000 | D2     |
+| E5  | AJOY    | MANAGER   | 75000 | D3     |
+| E6  | JAYANTA | EXECUTIVE | 35000 | D3     |
++-----+---------+-----------+-------+--------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT * FROM DEPT;
++--------+---------+---------+
+| DEPTNO | DNAME   | LOC     |
++--------+---------+---------+
+| D1     | MKTG    | KOLKATA |
+| D2     | FINANCE | CHENNAI |
+| D3     | IT      | DELHI   |
+| D4     | HR      | MUMBAI  |
++--------+---------+---------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT E.EID,E.ENAME,E.DESIG,E.SAL,D.DEPTNO,D.DNAME,D.LOC
+    -> FROM EMP E,DEPT D
+    -> WHERE E.DEPTNO=D.DEPTNO;
++-----+---------+-----------+-------+--------+---------+---------+
+| EID | ENAME   | DESIG     | SAL   | DEPTNO | DNAME   | LOC     |
++-----+---------+-----------+-------+--------+---------+---------+
+| E1  | ROBIN   | MANAGER   | 50000 | D1     | MKTG    | KOLKATA |
+| E2  | ARUP    | CLERK     | 25000 | D1     | MKTG    | KOLKATA |
+| E3  | ANNANYA | ANALYST   | 40000 | D2     | FINANCE | CHENNAI |
+| E4  | RUPAM   | CLERK     | 27000 | D2     | FINANCE | CHENNAI |
+| E5  | AJOY    | MANAGER   | 75000 | D3     | IT      | DELHI   |
+| E6  | JAYANTA | EXECUTIVE | 35000 | D3     | IT      | DELHI   |
++-----+---------+-----------+-------+--------+---------+---------+
+6 rows in set (0.00 sec)
+
+mysql> CREATE TABLE PRODUCT1 AS SELECT * FROM PRODUCT;
+Query OK, 2 rows affected (0.02 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM PRODUCT1;
++-----+------------+------+-------+------------+
+| PID | PNAME      | PQTY | PRICE | SALESDT    |
++-----+------------+------+-------+------------+
+| P1  | CONVECTION |   12 | 18000 | 2024-08-29 |
+| P2  | TAB        |    5 | 22000 | 2024-08-29 |
++-----+------------+------+-------+------------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT * FROM EMP;
++-----+---------+-----------+-------+--------+
+| EID | ENAME   | DESIG     | SAL   | DEPTNO |
++-----+---------+-----------+-------+--------+
+| E1  | ROBIN   | MANAGER   | 50000 | D1     |
+| E2  | ARUP    | CLERK     | 25000 | D1     |
+| E3  | ANNANYA | ANALYST   | 40000 | D2     |
+| E4  | RUPAM   | CLERK     | 27000 | D2     |
+| E5  | AJOY    | MANAGER   | 75000 | D3     |
+| E6  | JAYANTA | EXECUTIVE | 35000 | D3     |
++-----+---------+-----------+-------+--------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT * FROM EMP ORDER BY SAL;
++-----+---------+-----------+-------+--------+
+| EID | ENAME   | DESIG     | SAL   | DEPTNO |
++-----+---------+-----------+-------+--------+
+| E2  | ARUP    | CLERK     | 25000 | D1     |
+| E4  | RUPAM   | CLERK     | 27000 | D2     |
+| E6  | JAYANTA | EXECUTIVE | 35000 | D3     |
+| E3  | ANNANYA | ANALYST   | 40000 | D2     |
+| E1  | ROBIN   | MANAGER   | 50000 | D1     |
+| E5  | AJOY    | MANAGER   | 75000 | D3     |
++-----+---------+-----------+-------+--------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT * FROM EMP ORDER BY SAL DESC;
++-----+---------+-----------+-------+--------+
+| EID | ENAME   | DESIG     | SAL   | DEPTNO |
++-----+---------+-----------+-------+--------+
+| E5  | AJOY    | MANAGER   | 75000 | D3     |
+| E1  | ROBIN   | MANAGER   | 50000 | D1     |
+| E3  | ANNANYA | ANALYST   | 40000 | D2     |
+| E6  | JAYANTA | EXECUTIVE | 35000 | D3     |
+| E4  | RUPAM   | CLERK     | 27000 | D2     |
+| E2  | ARUP    | CLERK     | 25000 | D1     |
++-----+---------+-----------+-------+--------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT * FROM EMP ORDER BY SAL DESC;
++-----+---------+-----------+-------+--------+
+| EID | ENAME   | DESIG     | SAL   | DEPTNO |
++-----+---------+-----------+-------+--------+
+| E5  | AJOY    | MANAGER   | 75000 | D3     |
+| E1  | ROBIN   | MANAGER   | 50000 | D1     |
+| E3  | ANNANYA | ANALYST   | 40000 | D2     |
+| E6  | JAYANTA | EXECUTIVE | 35000 | D3     |
+| E4  | RUPAM   | CLERK     | 27000 | D2     |
+| E2  | ARUP    | CLERK     | 25000 | D1     |
++-----+---------+-----------+-------+--------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT * FROM EMP ORDER BY SAL DESC LIMIT 2;
++-----+-------+---------+-------+--------+
+| EID | ENAME | DESIG   | SAL   | DEPTNO |
++-----+-------+---------+-------+--------+
+| E5  | AJOY  | MANAGER | 75000 | D3     |
+| E1  | ROBIN | MANAGER | 50000 | D1     |
++-----+-------+---------+-------+--------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCT;
++-----+------------+------+-------+------------+
+| PID | PNAME      | PQTY | PRICE | SALESDT    |
++-----+------------+------+-------+------------+
+| P1  | CONVECTION |   12 | 18000 | 2024-08-29 |
+| P2  | TAB        |    5 | 22000 | 2024-08-29 |
++-----+------------+------+-------+------------+
+2 rows in set (0.00 sec)
+
+mysql> INSERT INTO PRODUCT VALUES('P3','LAPTOP',45,45000,'2024-08-27');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO PRODUCT VALUES('P4','MOBILE',12,12000,'2024-08-25');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT * FROM PRODUCT;
++-----+------------+------+-------+------------+
+| PID | PNAME      | PQTY | PRICE | SALESDT    |
++-----+------------+------+-------+------------+
+| P1  | CONVECTION |   12 | 18000 | 2024-08-29 |
+| P2  | TAB        |    5 | 22000 | 2024-08-29 |
+| P3  | LAPTOP     |   45 | 45000 | 2024-08-27 |
+| P4  | MOBILE     |   12 | 12000 | 2024-08-25 |
++-----+------------+------+-------+------------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCT ORDER BY SALESDT;
++-----+------------+------+-------+------------+
+| PID | PNAME      | PQTY | PRICE | SALESDT    |
++-----+------------+------+-------+------------+
+| P4  | MOBILE     |   12 | 12000 | 2024-08-25 |
+| P3  | LAPTOP     |   45 | 45000 | 2024-08-27 |
+| P1  | CONVECTION |   12 | 18000 | 2024-08-29 |
+| P2  | TAB        |    5 | 22000 | 2024-08-29 |
++-----+------------+------+-------+------------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT * FROM PRODUCT ORDER BY SALESDT LIMIT 2;
++-----+--------+------+-------+------------+
+| PID | PNAME  | PQTY | PRICE | SALESDT    |
++-----+--------+------+-------+------------+
+| P4  | MOBILE |   12 | 12000 | 2024-08-25 |
+| P3  | LAPTOP |   45 | 45000 | 2024-08-27 |
++-----+--------+------+-------+------------+
+2 rows in set (0.00 sec)
