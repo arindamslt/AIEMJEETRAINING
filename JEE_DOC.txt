@@ -104,14 +104,99 @@ ECLIPSE EE VERSION
 TOMCAT
 MYSQL
 ================================================================
+DATE:30.08.2024
+==================================================================
+JDBC
+==============================================================
+JAVA DATABASE CONNECTIVITY
+import java.sql.*;
+java.sql.*
+===================================
+LIST OF INTERFACES
+===================================
+1.Connection=====================TO ESTABLISH THE CONNECTION
+2.Statement======================EXECUTE SQL STATEMENT
+3.PreparedStatement==============EXECUTE PRECOMPILED SQL STATEMENT
+4.ResultSet=======================RETRIEVE DATA INTO RESULTSET
+5.ResultSetMetaData================GIVE DETAILS INFORMATION OF RESULTSET
+6.DatabaseMetaData=================GIVE DETAILS INFORMATION OF DATABASE
+7.CallableStatement================EXECUTE STORED PROCEDURE
+===========================================================================
+CLASSES
+========================================================
+1.DriverManager=====REGISTER AND LOAD THE JDBC DRIVER
+2.Date=============DEALS WITH DATE DATATYPE
+3.Timestamp=========DEALS WIT BOTH DATE AND TIME
+=======================================================================================
+EXCEPTION  HANDLE HERE
+========================================================================
+CHECKED EXCEPTION
+============================================
+1.ClassNotFoundException
+2.SQLException
+======================================================
+TYPES OF JDBC DRIVER
+==========================================================
+1.JDBC-ODBC BRIDGE====TYPE-I DRIVER
+3.JDBC NETWORK-ALL JAVA===TYPE-III DRIVER
+4.NATIVE PROTOCOL-All JAVA==TYPE-IV DRIVER
+================================================================
+STEPS OF COMMUNICATION
+==============================================================
+1.import java.sql.*;==============DONE
+2.REGISTER AND LOAD THE DRIVER=====DONE
+3.ESTABLISH THE CONNECTION=========DONE
+4.CREATE THE STATEMENT=============DONE
+5.EXECUTE THE STATEMENT=============DONE
+6.RETRIEVE DATA INTO RESULTSET=====DONE
+7.CLOSE THE CONNECTION AND STATEMENT
+==========================================================================
+DATABASENAME:JEEDB
+USERNAME:root
+PASSWORD:
+PORTNO:3306
+
+====================================================
+CREATE TABLE CUSTOMER_DTLS
+     (CID   VARCHAR(10) PRIMARY KEY,
+      CNAME VARCHAR(25) NOT NULL,
+     CPHNO VARCHAR(10) NOT NULL);
+ INSERT INTO CUSTOMER_DTLS VALUES('C1','ANUP','56565');
+ INSERT INTO CUSTOMER_DTLS VALUES('C2','ALOKE','343434');
+SELECT * FROM CUSTOMER_DTLS;
+========================================================
+public int add()
+{
 
 
 
+}
+public Connection getConn()
+{
 
+}
+JEE
+============================================
+PREREQUISITE
+==========================
+HTML
+CSS
+JAVASCRIPT
+=========================================
+CSS
+=========================
+CASCADING STYLE SHEET
+DESIGN,LAYOUT WEBPAGE
+===================================================================
+CSS CAN BE IMPLEMENT IN THREE WAYS
+=======================================
+1.INLINE CSS===STYLE
+2.INTERNAL OR EMBEDEDDED CSS
+3.EXTERNAL CSS
 
-
-
-
+BOOTSTRAP
+==========================
+IT IS POWERFULL,EXTENSIBLE FROND END TOOLKIT TO DEVELOP FASTER DESIGNING
 
 
 

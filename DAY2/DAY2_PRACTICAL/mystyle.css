@@ -1,0 +1,13 @@
+.imgContainer{
+	width: 30%;
+	margin: 100px auto;
+}
+.imgContainer h2{
+	color: red;
+}
+.imgContainer button{
+	background-color: black;
+	color: white;
+	margin-top: 10px;
+	margin-left: 40px;
+}
