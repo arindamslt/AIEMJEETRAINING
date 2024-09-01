@@ -201,6 +201,127 @@ IT IS POWERFULL,EXTENSIBLE FROND END TOOLKIT TO DEVELOP FASTER DESIGNING
 DATE:31.08.2024
 ==========================================================================
 CSS
+==========================================================================
+JAVASCRIPT
+==========================================================================
+JAVASCRIPT IS A PROGRAMMING LANGUAGE.BEFORE 2010 IT IS CALLED SCRIPTING LANGUAGE.
+NOW JAVASCRIPT CAN COMMUNICATE DATABASE,APPLICATION SERVER
+PURPOSE
+============================================================
+1.CLIENT AND SERVER SIDE VALIDATION
+2.CREATE DYNAMIC USER INTERFACE
+3.COMMUNICATE FROND END AND BACK END APPLICATION
+AREAS
+========================================================
+1.WEB APPLICATION
+2.MOBILE APPLICATION
+3.STAND ALONE APPLICATION
+4.DEVELOP ML APP
+===========================================================
+<head>
+<script>
+
+</script>
+
+</head>
+=============================================================
+WHAT IS DOM?
+DOM STANDS FOR DOCUMENT OBJECT MODEL.
+HTML DOCUMENT IS COVERTED TO OBJECTS CALLED NODES AND IT WILL FROM A TREE LIKE STRUCTURE
+CALLED DOM.
+
+HTML DOCUMENT===BROWSER ENGINE===COMPILE ===BYTES==THEN CONVERTED TO ===TOKENS
+===THEN CONVERTED TO OBJECTS CALLED NODES
+DATA TYPES
+===============================
+PRIMITIVE TYPES============number,boolean,symbol,null,undefined,string
+NON PRIMITIVE TYPES========object
+VARIABLE DECLARED IN JAVASCRIPT BY MEANS OF
+=======================================
+LET,VAR,CONST
+=========================================
+TYPES OF FUNCTION
+=================================
+1.NORMAL FUNCTION
+2.NORMAL FUNCTION WITH RETURN TYPE
+3.ANNONYMOUS FUNCTION
+4.CALLBACK FUNCTION
+5.HIGHER ORDER FUNCTION
+6.ARROW FUNCTION
+==========================================================================
+JAVASCRIPT CAN ACCESS THE COMPONENT BY
+==================================
+1.ID VALUE
+2.TAGNAME
+3.NAME ATTRIBUTE
+4.CLASS
+======================================================================
+DATE:01.09.2024
+======================================================================
+JEE
+=======================================================================
+JAVA ENTERPRISE EDITION
+=======================================================================
+TERMS
+==========================================
+1.TWO TIER ARCHITECTURE
+2.THREE TIER ARCHITECTURE
+3.n-TIER ARCHITECTURE
+=============================================
+1.SERVLET
+2.JSP
+=============================================
+SERVLET
+=============================================================
+SERVER SIDE ENVIRONMENT
+REQUEST RESPONSE ORIENTED PROGRAMMING
+LIFE CYCLE OF SERVLET
+=========================================
+THREE STAGES
+=====================================
+INIT()
+SERVICE()
+DESTROY()
+
+http://localhost:8080/ServletDemo1/EmployeeServe
+COMMUNICATE SERVLET TO SERVLET
+======================================
+SERVLET FILTER
+====================================================================
+JSP
+=====================================================
+JAVA SERVER PAGES
+HTML                       VS          JSP
+=================================================
+1.HTML DOESN'T  SUPPORT           1.JSP SUPPORT THE JAVA CODE
+JAVA CODE
+===============================================================
+JSP LIFECYCLE
+======================================================
+jspinit()
+jspservice()
+jspdestroy()
+=====================================================
+JSPPAGE====COMPILE====SERVLET
+JSP IS ANOTHER FORM OF SERVLET
+<%
+int x=10;
+int y;
+   %>====SCRIPLET
+<%=x%>=====EXPRESSION
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
