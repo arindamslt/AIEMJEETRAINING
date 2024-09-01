@@ -1,0 +1,15 @@
+.mContainer{
+	display: flex;
+}
+.lContainer{
+	width: 30%;
+}
+.rContainer{
+	width:70%;
+	margin-left: 100px;
+}
+.rContainer h2{
+	color:blue;
+	margin-top: 10px;
+	font-style: oblique;
+}

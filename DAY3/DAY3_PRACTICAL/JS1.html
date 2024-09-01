@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script>
+	function changeToH2()
+	{
+		var h2Ref=document.getElementById("domh");
+		h2Ref.innerText="DOM MANIPULATION BY JAVASCRIPT";
+		
+	}
+	function changeToP()
+	{
+		var pRef=document.getElementById("domp");
+		pRef.innerText="JAVASCRIPT EVENT HANDELLING";
+	}
+</script>
+</head>
+<body>
+<div>
+	<h2 id="domh">DOM</h2>
+	<p id="domp">JAVASCRIPT</p>
+	<button onclick="changeToH2()">CHANGETOH2</button> &nbsp;&nbsp;
+	<button onclick="changeToP()">CHANGETOP</button>
+</div>
+</body>
+</html>

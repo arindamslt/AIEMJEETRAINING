@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script>
+	function validateForm()
+	{
+		var isValid=true;
+		var cid=document.f1.cid.value;
+		alert("cid:"+cid);
+		var cname=document.f1.cname.value;
+		alert("cname:"+cname);
+		var cphno=document.f1.cphno.value;
+		alert("cphno:"+cphno);
+		if(cid.length<1)
+		{
+			//alert("CID CAN'T BLANK");
+			var hcid=document.getElementById("hcid");
+			hcid.innerText="CID CAN'T BLANK";
+			isValid=false;
+		}
+		if(cname.length<4)
+		{
+			//alert("CNAME MUST BE ALLEAST FOUR CHARECTER LONG");
+			var hcname=document.getElementById("hcname");
+			hcname.innerText="NAME MUST BE ALLEAST FOUR CHARECTER LONG";
+			isValid=false;
+		}
+		if(cphno.length<10)
+		{
+			//alert("PHONE MUST BE 10 DIGIT");
+			var hcphno=document.getElementById("hcphno");
+			hcphno.innerText="PHONE MUST BE 10 DIGIT";
+			isValid=false;
+		}
+		return isValid;
+	}
+</script>
+</head>
+<body >
+<div style="width: 30%;margin:100px auto;">
+	<form name="f1" onsubmit="return validateForm()">
+		<input type="text" name="cid" id="cid" class="form-control" placeholder="ENTER THE CUSTOMER ID">
+		<h3 id="hcid" style="color:red;"></h3>
+		<input type="text" name="cname" id="cname" class="form-control" placeholder="ENTER THE CUSTOMER NAME">
+		<h3 id="hcname" style="color:red;"></h3>
+		<input type="text" name="cphno" id="cphno" class="form-control" placeholder="ENTER THE CUSTOMER PHONE NO">
+	     <h3 id="hcphno" style="color:red;"></h3>
+	     <input type="submit" class="btn btn-outline-primary" value="REGISTER">
+	</form>
+</div>
+</body>
+</html>
