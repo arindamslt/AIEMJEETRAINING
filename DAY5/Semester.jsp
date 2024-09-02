@@ -9,8 +9,14 @@
 
 </head>
 <body>
+<%
+String rollno=request.getParameter("rollno");
+String sname=request.getParameter("sname");
+String yrad=request.getParameter("yrad");
+
+%>
 <div >
-	<form action="Semester.jsp" method="post" style="width:30%;margin:100px auto;">
+	<form action="PInfo.jsp" method="post" style="width:30%;margin:100px auto;">
 		<h2>SEMESTER DETAILS</h2>
 	   CHOOSE SEM<select name="sem" class="custom-select">
 	   <option value="I">I</option>
@@ -34,7 +40,9 @@
 	    <option value="IT">IT</option>
 	    <option value="CIVIL">CIVIL</option>
 	  	   </select>
-		
+		<input type="hidden" name="rollno" value="<%=rollno %>">
+		<input type="hidden" name="sname" value="<%=sname %>">
+		<input type="hidden" name="yard" value="<%=yrad %>">
 	<input type="submit" class="btn btn-outline-dark" value="CONTINUE">
 	</form>
 </div>

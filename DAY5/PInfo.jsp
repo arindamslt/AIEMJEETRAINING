@@ -9,13 +9,26 @@
 
 </head>
 <body>
+<%
+String rollno=request.getParameter("rollno");
+String sname=request.getParameter("sname");
+String yrad=request.getParameter("yrad");
+String sem=request.getParameter("sem");
+String yr=request.getParameter("yr");
+String sdept=request.getParameter("sdept");
+%>
 <div >
 	<form action="Show.jsp" method="post" style="width:30%;margin:100px auto;">
 		<h2>PERSONNEL INFORMATION</h2>
 	<input type="text" class="form-control" placeholder="ENTER THE PHONE NO" name="phno">
 	<input type="text" class="form-control" placeholder="ENTER THE EMAIL" name="email">
 	<input type="text" class="form-control" placeholder="ENTER THE CITY" name="city">
-	
+	<input type="hidden" name="rollno" value="<%=rollno %>">
+		<input type="hidden" name="sname" value="<%=sname %>">
+		<input type="hidden" name="yard" value="<%=yrad %>">
+		<input type="hidden" name="sem" value="<%=sem %>">
+		<input type="hidden" name="yr" value="<%=yr %>">
+		<input type="hidden" name="sdept" value="<%=sdept %>">
 	<input type="submit" class="btn btn-outline-dark" value="FINISH">
 	</form>
 </div>
