@@ -1,0 +1,22 @@
+.mainContainer{
+	/*background-color: red;*/
+	display: flex;
+}
+.leftContainer{
+	background-color: black;
+	width: 30%;
+	color:white;
+}
+.rightContainer{
+	background-color: black;
+	width:70%;
+	color: white;
+	display: flex;
+	
+}
+.rightContainer a{
+	color: white;
+	text-decoration: none;
+	margin: 20px auto;
+	justify-content: space-evenly;
+}

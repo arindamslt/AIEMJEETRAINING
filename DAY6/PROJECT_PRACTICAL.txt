@@ -1,0 +1,37 @@
+mysql> CREATE DATABASE FOODDBS;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> USE FOODDBS;
+Database changed
+mysql> CREATE TABLE FOOD
+    -> (FID  VARCHAR(10) PRIMARY KEY,
+    ->  FNAME VARCHAR(25) NOT NULL,
+    ->  FPRICE  DECIMAL);
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> DESC FOOD;
++--------+---------------+------+-----+---------+-------+
+| Field  | Type          | Null | Key | Default | Extra |
++--------+---------------+------+-----+---------+-------+
+| FID    | varchar(10)   | NO   | PRI | NULL    |       |
+| FNAME  | varchar(25)   | NO   |     | NULL    |       |
+| FPRICE | decimal(10,0) | YES  |     | NULL    |       |
++--------+---------------+------+-----+---------+-------+
+
+FoodAddServe
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

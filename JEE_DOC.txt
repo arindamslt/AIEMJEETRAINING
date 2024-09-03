@@ -309,11 +309,47 @@ int x=10;
 int y;
    %>====SCRIPLET
 <%=x%>=====EXPRESSION
-
-
-
-
-
+========================================================================================
+DATE:02.09.2024
+========================================================================================
+HTML===<HEAD> <BODY>
+JSP==HTML+JAVA CODE
+JAVA CODE
+===================
+<%  %>
+JSP ACTION TAG
+=========================================================================================
+IT IS USED FOR SPECIAL PURPOSE
+<jsp:>
+LIST OF ACTION TAG
+====================================
+<jsp:include>
+<jsp:forward>
+<jsp:useBean>
+<jsp:setProperty>
+<jsp:getProperty>
+<jsp:param>
+========================================================
+<jsp:param>
+===============================================
+<jsp:forward>
+<jsp:param></jsp:param>
+</jsp:forward>
+=============================================================================
+SESSION MANAGEMENT
+==============================================================================
+SESSION MANAGEMENT CAN BE DONE BY FOUR WAYS
+===============================================
+1.SESSION
+2.URL REWRITTING
+3.COOKIES
+4.INPUT FROM HIDDEN FIELDS
+======================================================
+DATE:03.09.2024
+========================================================
+SERVLET JSP DATABASE INTEGRATION
+MVC DESIGN PATTERN
+DAO DTO DESIGN PATTERN
 
 
 
